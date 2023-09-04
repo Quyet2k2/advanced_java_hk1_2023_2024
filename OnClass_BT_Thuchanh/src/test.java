@@ -1,51 +1,58 @@
 
 import java.awt.*;
-import java.awt.event.*;
 
-public class test extends Frame implements ItemListener {
+public class test  {
 
-    Checkbox checkBox1, checkBox2;
-
-    public test() {
-        setLayout(new FlowLayout());
-
-        checkBox1 = new Checkbox("Option 1");
-        checkBox2 = new Checkbox("Option 2");
-
-        add(checkBox1);
-        add(checkBox2);
-
-        checkBox1.addItemListener(this);
-        checkBox2.addItemListener(this);
-
-        setSize(300, 150);
-        setVisible(true);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-    }
-
-    public void itemStateChanged(ItemEvent e) {
-        Checkbox source = (Checkbox) e.getSource();
-
-        if (source == checkBox1) {
-            if (source.getState()) {
-                System.out.println("Checkbox 1 selected.");
-            } else {
-                System.out.println("Checkbox 1 deselected.");
-            }
-        } else if (source == checkBox2) {
-            if (source.getState()) {
-                System.out.println("Checkbox 2 selected.");
-            } else {
-                System.out.println("Checkbox 2 deselected.");
-            }
-        }
-    }
+   
 
     public static void main(String[] args) {
-        new test();
+        // Tạo một đối tượng Frame
+        Frame frame = new Frame("Ví dụ GridBagLayout");
+
+        // Tạo một đối tượng Panel để chứa các thành phần
+        Panel panel = new Panel();
+        frame.add(panel);
+
+        // Sử dụng GridBagLayout cho Panel
+        GridBagLayout layout = new GridBagLayout();
+        panel.setLayout(layout);
+
+        // Tạo và đặt các nhãn phía trên
+        Label label1 = new Label("Label 1");
+        Label label2 = new Label("Label 2");
+        Label label3 = new Label("Label 3");
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.fill = GridBagConstraints.CENTER;
+        panel.add(label1, gbc);
+
+        gbc.gridx = 1;
+        panel.add(label2, gbc);
+
+        gbc.gridx = 2;
+        panel.add(label3, gbc);
+
+        // Tạo và đặt các nút
+        Button button1 = new Button("Button 1");
+        Button button2 = new Button("Button 2");
+        Button button3 = new Button("Button 3");
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        panel.add(button1, gbc);
+
+        gbc.gridx = 1;
+        panel.add(button2, gbc);
+
+        gbc.gridx = 2;
+        panel.add(button3, gbc);
+
+        // Hiển thị Frame
+        frame.setSize(400, 200);
+        frame.setVisible(true);
     }
 }

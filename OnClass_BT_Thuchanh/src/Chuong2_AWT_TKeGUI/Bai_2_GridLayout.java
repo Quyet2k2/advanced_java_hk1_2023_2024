@@ -1,3 +1,4 @@
+package Chuong2_AWT_TKeGUI;
 
 import java.awt.Button;
 import java.awt.Checkbox;
@@ -61,60 +62,57 @@ public class Bai_2_GridLayout extends Frame {
 //        this.setSize(300, 120);
 //    }
 //    
-        /**/
-    
+    /**/
 //    Hình 3
     Button b1, b2, b3;
     Checkbox c1;
     Label l1, l2;
     TextField t1;
-    
+
     Button[] buttons = {b1, b2, b3};
     Label[] labels = {l1, l2};
-public Bai_2_GridLayout() {
+
+    public Bai_2_GridLayout() {
         super("Grid Dempo");
-        this.setLayout(new GridLayout(4,0,15,10));
-        
-        b1 = new Button("Red");        
+        this.setLayout(new GridLayout(4, 0, 15, 10));
+
+        b1 = new Button("Red");
         b2 = new Button("Blue");
         b3 = new Button("Green");
         c1 = new Checkbox("Pick me");
         l1 = new Label("Enter name here: ");
         t1 = new TextField("");
         l2 = new Label("Them");
-        
+
         buttons = new Button[]{b1, b2, b3}; // Tạo và gán giá trị cho mảng buttons
         labels = new Label[]{l1, l2}; // Tạo và gán giá trị cho mảng labels
-        
-         // Tạo một font với kích thước ..
+
+        // Tạo một font với kích thước ..
         Font customFont = new Font("Arial", Font.PLAIN, 16);
 
         // Thiết lập font và kích thước font cho Label và Button
         for (Button button : buttons) {
-            button.setFont(customFont);  
+            button.setFont(customFont);
             this.add(button);
             c1.setFont(customFont);
         }
-        
+
         for (Label label : labels) {
-            label.setFont(customFont);  
-        }      
-      
-//        this.add(b1);
-//        this.add(b2);
-//        this.add(b3);
+            label.setFont(customFont);
+        }
+
         add(c1);
         this.add(l1);
         this.add(t1);
         this.add(l2);
-        
+
         this.addWindowListener(new WindowAdapter() {
             public void windowOpened(WindowEvent e) {
                 b3.requestFocusInWindow(); // Đặt focus vào nút mặc định
             }
         });
 
-        this.setSize(600,350);
+        this.setSize(600, 350);
     }
 
     public static void main(String[] args) {
