@@ -89,16 +89,11 @@ public class Bai_2_GridLayout extends Frame {
 
         // Tạo một font với kích thước ..
         Font customFont = new Font("Arial", Font.PLAIN, 16);
+        this.setFont(customFont);
 
         // Thiết lập font và kích thước font cho Label và Button
         for (Button button : buttons) {
-            button.setFont(customFont);
             this.add(button);
-            c1.setFont(customFont);
-        }
-
-        for (Label label : labels) {
-            label.setFont(customFont);
         }
 
         add(c1);
@@ -107,6 +102,7 @@ public class Bai_2_GridLayout extends Frame {
         this.add(l2);
 
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowOpened(WindowEvent e) {
                 b3.requestFocusInWindow(); // Đặt focus vào nút mặc định
             }
